@@ -23,7 +23,7 @@
             text-align: center;
             padding: 2rem;
             font-size: 3rem;
-            color: #fff; /* White color */
+            color: #fff; /* Changed to white */
             text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff; /* Blue glow */
             animation: glow 2s ease-in-out infinite alternate;
         }
@@ -43,7 +43,7 @@
             padding: 1rem;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-            height: 100%;
+            height: 100%; /* Ensures sidebar is full height */
         }
 
         .character-list {
@@ -59,13 +59,12 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            background: transparent; /* Set default background to transparent */
         }
-        
+
         .character-item:hover {
-            transform: scale(1.05) translateX(5px);
+            transform: scale(1.05) translateX(10px);
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
-            background: rgba(0, 255, 255, 0.1); /* Background only on hover */
+            background: rgba(0, 255, 255, 0.1);
         }
 
         .character-item::before {
@@ -108,7 +107,7 @@
         }
 
         .character-image {
-            max-width: 150%; /* Increased size */
+            max-width: 120%; /* Increased size */
             max-height: 100%;
             opacity: 0;
             transition: opacity 0.5s ease;
@@ -167,21 +166,16 @@
     <div class="container">
         <div class="sidebar">
             <ul class="character-list">
-                <li class="character-item" data-char="optimus-prime" style="background-color: red;">Optimus Prime</li>
-                <li class="character-item" data-char="bumblebee" style="background-color: red;">Bumblebee</li>
-                <li class="character-item" data-char="megatron" style="background-color: purple;">Megatron</li>
-                <li class="character-item" data-char="starscream" style="background-color: purple;">Starscream</li>
-                <li class="character-item" data-char="jazz" style="background-color: red;">Jazz</li>
-                <li class="character-item" data-char="ultra-magnus" style="background-color: blue;">Ultra Magnus</li>
-                <li class="character-item" data-char="scourge" style="background-color: orange;">Scourge</li>
-                <li class="character-item" data-char="predacons" style="background-color: yellow;">Predacons</li>
-                <li class="character-item" data-char="lockdown" style="background-color: gray;">Lockdown</li>
-                <li class="character-item" data-char="quintessa" style="background-color: green;">Quintessa</li>
+                <li class="character-item" data-char="optimus-prime">Optimus Prime</li>
+                <li class="character-item" data-char="bumblebee">Bumblebee</li>
+                <li class="character-item" data-char="megatron">Megatron</li>
+                <li class="character-item" data-char="starscream">Starscream</li>
+                <li class="character-item" data-char="jazz">Jazz</li>
             </ul>
         </div>
         <div class="main-content">
             <div class="image-container">
-                <img class="character-image active">
+                <img class="character-image active" src="png/optimus-prime.png">
             </div>
             <div class="character-info">
                 <h2 class="character-name"></h2>
