@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transformers Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #000;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .title {
+            text-align: center;
+            padding: 2rem;
+            font-size: 3rem;
+            background: linear-gradient(45deg, #00f, #0ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .container {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            height: calc(100vh - 7rem);
+        }
+
+        .sidebar {
+            flex: 1;
+            max-width: 300px;
+            background: rgba(0, 30, 60, 0.5);
+            border-right: 2px solid #0ff;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .character-list {
+            list-style: none;
+        }
+
+        .character-item {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            cursor: pointer;
+            border: 1px solid #0ff;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .character-item:hover {
+            transform: scale(1.05) translateX(10px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+            background: rgba(0, 255, 255, 0.1);
+        }
+
+        .character-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(0, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .character-item:hover::before {
+            left: 100%;
+        }
+
+        .main-content {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            background: rgba(0, 20, 40, 0.5);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+            overflow-y: auto;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-height: 50%;
+        }
+
+        .character-image {
+            max-width: 100%;
+            max-height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .character-image.active {
+            opacity: 1;
+        }
+
+        .character-info {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            background: rgba(0, 40, 80, 0.5);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #0ff;
+        }
+
+        .character-info.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .info-label {
+            color: #0ff;
+            font-weight: bold;
+        }
+
+        .character-name {
+            font-size: 2rem;
+            color: #0ff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+            }
+            to {
+                text-shadow: 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">TRANSFORMERS REBOOTED</h1>
+    <div class="container">
+        <div class="sidebar">
+            <ul class="character-list">
+                <li class="character-item" data-char="optimus">Optimus Prime</li>
+                <li class="character-item" data-char="bumblebee">Bumblebee</li>
+                <li class="character-item" data-char="megatron">Megatron</li>
+                <li class="character-item" data-char="starscream">Starscream</li>
+                <li class="character-item" data-char="jazz">Jazz</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="image-container">
+                <img class="character-image active" src="png/optimus.png" alt="Transformer character">
+            </div>
+            <div class="character-info">
+                <h2 class="character-name"></h2>
+                <div class="info-grid">
+                    <span class="info-label">Bio:</span>
+                    <span class="info-bio"></span>
+                    
+                    <span class="info-label">Alt Mode:</span>
+                    <span class="info-altMode"></span>
+                    
+                    <span class="info-label">Origin:</span>
+                    <span class="info-origin"></span>
+                    
+                    <span class="info-label">Height:</span>
+                    <span class="info-height"></span>
+                    
+                    <span class="info-label">Faction:</span>
+                    <span class="info-faction"></span>
+                    
+                    <span class="info-label">Role:</span>
+                    <span class="info-role"></span>
+                    
+                    <span class="info-label">Weapons:</span>
+                    <span class="info-weapons"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import characters from './characters.js';
+
+        function updateCharacterInfo(charKey) {
+            const char = characters[charKey];
+            const image = document.querySelector('.character-image');
+            const info = document.querySelector('.character-info');
+            
+            // Update image
+            image.classList.remove('active');
+            info.classList.remove('active');
+            
+            setTimeout(() => {
+                image.src = `png/${charKey}.png`;
+                image.classList.add('active');
+                
+                // Update info
+                document.querySelector('.character-name').textContent = char.name;
+                document.querySelector('.info-bio').textContent = char.bio;
+                document.querySelector('.info-altMode').textContent = char.altMode;
+                document.querySelector('.info-origin').textContent = char.origin;
+                document.querySelector('.info-height').textContent = char.height;
+                document.querySelector('.info-faction').textContent = char.faction;
+                document.querySelector('.info-role').textContent = char.role;
+                document.querySelector('.info-weapons').textContent = char.weapons;
+                
+                info.classList.add('active');
+            }, 500);
+        }
+
+        // Initialize with Optimus Prime
+        updateCharacterInfo('optimus');
+
+        // Add click handlers
+        document.querySelectorAll('.character-item').forEach(item => {
+            item.addEventListener('click', () => {
+                updateCharacterInfo(item.dataset.char);
+            });
+        });
+    </script>
+</body>
+</html>
