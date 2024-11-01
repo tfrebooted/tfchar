@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Transformers Hub</title>
+    <title>TFRebooted Characters</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -59,12 +59,13 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            background: transparent; /* Set default background to transparent */
         }
-
+        
         .character-item:hover {
-            transform: scale(1.05) translateX(5px); /* Shortened hover length */
+            transform: scale(1.05) translateX(5px);
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
-            background: rgba(0, 255, 255, 0.1);
+            background: rgba(0, 255, 255, 0.1); /* Background only on hover */
         }
 
         .character-item::before {
