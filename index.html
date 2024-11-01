@@ -23,11 +23,8 @@
             text-align: center;
             padding: 2rem;
             font-size: 3rem;
-            background: linear-gradient(45deg, #00f, #0ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            color: #fff; /* Changed to white */
+            text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff; /* Blue glow */
             animation: glow 2s ease-in-out infinite alternate;
         }
 
@@ -46,6 +43,7 @@
             padding: 1rem;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            height: 100%; /* Ensures sidebar is full height */
         }
 
         .character-list {
@@ -109,7 +107,7 @@
         }
 
         .character-image {
-            max-width: 100%;
+            max-width: 120%; /* Increased size */
             max-height: 100%;
             opacity: 0;
             transition: opacity 0.5s ease;
