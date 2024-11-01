@@ -1,5 +1,5 @@
 const characters = {
-    "optimus": {
+    "optimus-prime": {
         name: "Optimus Prime",
         bio: "Noble leader of the Autobots. Originally a data clerk named Orion Pax, he was chosen by the Matrix of Leadership to lead the Autobots in their war against the Decepticons.",
         altMode: "Freightliner Truck",
