@@ -140,7 +140,7 @@
         </div>
         <div class="main-content">
             <div class="image-container">
-                <img id="characterImage" class="character-image active" src="https://tfrebooted.github.io/png/blank.png">
+                <img id="characterImage" class="character-image active" src="https://tfrebooted.github.io/tfchar/png/blank.png">
             </div>
         </div>
     </div>
@@ -192,7 +192,7 @@
             li.className = 'character-item';
             li.textContent = character.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
             li.addEventListener('click', () => {
-                const imageUrl = `https://tfrebooted.github.io/png/${character}.png`;
+                const imageUrl = `https://tfrebooted.github.io/tfchar/png/${character}.png`;
                 characterImage.src = imageUrl;
             });
             characterList.appendChild(li);
